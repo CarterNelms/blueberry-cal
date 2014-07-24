@@ -1,0 +1,38 @@
+#!/usr/bin/env ruby
+
+require_relative 'lib/month'
+
+y = ARGV[0]
+m, y = ARGV[0], ARGV[1] if ARGV[1]
+
+if m
+  case m.downcase
+  when "january", "jan"
+    m = 1
+  when "february", "feb"
+    m = 2
+  when "march", "mar"
+    m = 3
+  when "april", "apr"
+    m = 4
+  when "may"
+    m = 5
+  when "june", "jun"
+    m = 6
+  when "july", "jul"
+    m = 7
+  when "august", "aug"
+    m = 8
+  when "september", "sept", "sep"
+    m = 9
+  when "october", "oct"
+    m = 10
+  when "november", "nov"
+    m = 11
+  when "december", "dec"
+    m = 12
+  end
+  puts Month.new(m.to_i, y.to_i).to_s
+else
+  puts Year.new(y.to_i).to_s
+end
